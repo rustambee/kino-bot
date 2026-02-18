@@ -145,7 +145,7 @@ def instagram_redirect(message):
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton(
         text="📱 Instagram'da biz",
-        url=INSTAGRAM_URL
+        url=get_setting("instagram_url", INSTAGRAM_URL)
     ))
     bot.send_message(
         message.chat.id,
@@ -202,8 +202,8 @@ def select_tariff(call):
         f"📦 Tarif: {months} oy\n"
         f"💰 Narxi: {price:,} so'm\n\n"
         f"💳 Karta raqami:\n"
-        f"<code>{CARD_NUMBER}</code>\n\n"
-        f"👤 Karta egasi: {CARD_OWNER}\n\n"
+        f"<code>{get_setting('card_number', CARD_NUMBER)}</code>\n\n"
+        f"👤 Karta egasi: {get_setting('card_owner', CARD_OWNER)}\n\n"
         f"⚠️ To'lovni amalga oshirgach, pastdagi tugmani bosing!",
         call.message.chat.id,
         call.message.message_id,
